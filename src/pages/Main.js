@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PokeList from "../components/pokemon/PokeList";
 import { Link } from 'react-router-dom';
+import Navbar from "../components/Navbar";
+import Layout from "../components/Layout";
 
 const PokemonList = () => {
   const [pokemonList, setPokemonList] = useState([]);
   const [offset, setOffset] = useState(0);
-  const limit = 20; // Number of Pokémon to fetch per request
+  const limit = 21; // Number of Pokémon to fetch per request
 
   useEffect(() => {
     fetchPokemonList();
@@ -51,8 +53,8 @@ const PokemonList = () => {
   };
 
   return (
+    <Layout>
     <div>
-      <h1>Pokémon List</h1>
       <PokeList pokemon={pokemonList} />
       <div>
         <button onClick={handlePrevClick}>Previous</button>
@@ -62,6 +64,7 @@ const PokemonList = () => {
         </Link>
       </div>
     </div>
+    </Layout>
   );
 };
 

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {releasePokemon, toggleFavorite } from '../../redux/store';
 import PokeItem from "./PokeItem";
+import Navbar from "../Navbar";
+import Layout from "../Layout";
 
 const Pokedex = () => {
   const [showFavorites, setShowFavorites] = useState(false);
@@ -18,6 +20,7 @@ const Pokedex = () => {
     : caughtPokemons;
 
   return (
+  <Layout>
     <div>
       <h2>Pokédex</h2>
       <button onClick={handleToggleFavorites}>
@@ -35,6 +38,7 @@ const Pokedex = () => {
         ))}
       </ul>
     </div>
+  </Layout>
   );
 };
 
