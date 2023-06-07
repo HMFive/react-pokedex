@@ -1,19 +1,17 @@
-import React from "react";
-import PokeItem from "./PokeItem";
+import React from 'react';
+import PokeItem from './PokeItem';
 
-function PokeDefault(props) {
+function PokeList(props) {
   return (
-  <ul>
-    {props.pokemon.map((pokemon) => (
-      <PokeItem
-        key={pokemon.id}
-        image={pokemon.sprites.front_default}
-        name={pokemon.name}
-        types={pokemon.types}
-      />
-    ))}
-  </ul>
-  )
+    <ul>
+      {props.pokemon.map((pokemon) => (
+        <PokeItem
+          key={pokemon.id}
+          pokemon={pokemon} // Pass the entire pokemon object as prop
+        />
+      ))}
+    </ul>
+  );
 }
 
-export default PokeDefault
+export default PokeList;

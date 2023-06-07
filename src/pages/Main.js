@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PokeList from "../components/pokemon/PokeList";
+import { Link } from 'react-router-dom';
 
 const PokemonList = () => {
   const [pokemonList, setPokemonList] = useState([]);
@@ -20,10 +21,11 @@ const PokemonList = () => {
         },
       });
       const results = response.data.results;
-      console.log(results)
+      console.log("res",results)
       const pokemonDetails = await Promise.all(
         results.map((pokemon) => fetchPokemonDetails(pokemon.url))
       );
+      console.log("pode",pokemonDetails)
       setPokemonList(pokemonDetails);
     } catch (error) {
       console.error('Error fetching Pokémon list:', error);
@@ -58,6 +60,9 @@ const PokemonList = () => {
       <div>
         <button onClick={handlePrevClick}>Previous</button>
         <button onClick={handleNextClick}>Next</button>
+        <Link to={`/pokedex`}>
+          PokeDex
+        </Link>
       </div>
     </div>
   );

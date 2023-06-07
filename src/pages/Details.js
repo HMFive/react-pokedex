@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-const Details = ({ match }) => {
+const PokemonDetailsPage = () => {
+  const { id } = useParams();
   const [pokemonDetails, setPokemonDetails] = useState(null);
-  const { id } = match.params;
 
   useEffect(() => {
     fetchPokemonDetails();
-  }, []);
+  }, [id]);
 
   const fetchPokemonDetails = async () => {
     try {
@@ -44,4 +45,4 @@ const Details = ({ match }) => {
   );
 };
 
-export default Details;
+export default PokemonDetailsPage;

@@ -1,17 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
 import Main from "./pages/Main";
-import {Route, Router, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Details from "./pages/Details";
+import Pokedex from "./components/pokemon/Pokedex";
 
 function App() {
   return (
-    <Router>
-      <Routes>
+    <BrowserRouter>
+    <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/pokedex" element={<Pokedex />} />
         <Route path="/pokemon/:id" element={<Details />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 
