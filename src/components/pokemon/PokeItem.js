@@ -1,27 +1,46 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { catchPokemon } from '../../redux/store';
+import { catchPokemon, releasePokemon, toggleFavorite } from '../../redux/store';
 
 function PokeItem(props) {
+  const { pokemon, showCatchButton, showReleaseButton, showAddToFavoritesButton } = props;
   const dispatch = useDispatch();
+  const [isCaught, setIsCaught] = useState(false);
 
   const handleCatch = () => {
-    dispatch(catchPokemon(props.pokemon)); // Dispatch catchPokemon action with the entire pokemon object
+    if (!isCaught) {
+      dispatch(catchPokemon(props.pokemon));
+      setIsCaught(true);
+    }
   };
 
+  const handleRelease = () => {
+    dispatch(releasePokemon(pokemon));
+  };
+
+  const handleAddToFavorites = () => {
+    dispatch(toggleFavorite(pokemon));
+  };
   return (
     <li>
-      <Link to={`/pokemon/${props.pokemon.name}`}>
-        <img src={props.pokemon.sprites.front_default} alt={props.pokemon.name} />
-        <p>{props.pokemon.name}</p>
+      <Link to={`/pokemon/${pokemon.name}`}>
+        <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+        <p>{pokemon.name}</p>
       </Link>
       <ul>
-        {props.pokemon.types.map((type) => (
+        {pokemon.types.map((type) => (
           <li key={type.slot}>{type.type.name}</li>
         ))}
       </ul>
-      <button onClick={handleCatch}>Catch</button>
+      {showCatchButton &&  <button onClick={handleCatch} disabled={isCaught}>
+        {isCaught ? 'Caught' : 'Catch'}
+      </button>}
+      {showReleaseButton && <button onClick={handleRelease}>Release</button>}
+      {showAddToFavoritesButton && (
+        <button onClick={handleAddToFavorites}>  {pokemon.favorite ? 'Remove Favorite' : 'Add Favorite'}
+        </button>
+      )}
     </li>
   );
 }

@@ -21,11 +21,9 @@ const PokemonList = () => {
         },
       });
       const results = response.data.results;
-      console.log("res",results)
       const pokemonDetails = await Promise.all(
         results.map((pokemon) => fetchPokemonDetails(pokemon.url))
       );
-      console.log("pode",pokemonDetails)
       setPokemonList(pokemonDetails);
     } catch (error) {
       console.error('Error fetching Pokémon list:', error);
@@ -55,8 +53,7 @@ const PokemonList = () => {
   return (
     <div>
       <h1>Pokémon List</h1>
-      <PokeList pokemon={pokemonList}></PokeList>
-
+      <PokeList pokemon={pokemonList} />
       <div>
         <button onClick={handlePrevClick}>Previous</button>
         <button onClick={handleNextClick}>Next</button>

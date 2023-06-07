@@ -8,6 +8,7 @@ function PokeList(props) {
         <PokeItem
           key={pokemon.id}
           pokemon={pokemon} // Pass the entire pokemon object as prop
+          showCatchButton={true}
         />
       ))}
     </ul>
