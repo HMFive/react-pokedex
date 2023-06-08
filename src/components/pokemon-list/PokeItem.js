@@ -3,10 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { catchPokemon, releasePokemon, toggleFavorite } from '../../redux/store';
 import typeColor from '../../typeColor';
-import emptyPokeBall from '../../assets/icons8-pokeball-100.png';
-import pokeBall from '../../assets/icons8-pokeball-r-100.png';
-import { motion, useAnimation } from 'framer-motion';
-import CatchButton from "../CatchButton";
+import CatchButton from "../common/CatchButton";
 
 
 function PokeItem(props) {
@@ -15,13 +12,6 @@ function PokeItem(props) {
   const caughtPokemons = useSelector((state) => state.pokedex.caughtPokemons);
   const isCaught = caughtPokemons.some((caughtPokemon) => caughtPokemon.id === pokemon.id);
 
-  const handleCatch = () => {
-    if (!isCaught) {
-      dispatch(catchPokemon(pokemon));
-    }
-
-
-  };
 
   const handleRelease = () => {
     dispatch(releasePokemon(pokemon));
@@ -30,14 +20,6 @@ function PokeItem(props) {
   const handleAddToFavorites = () => {
     dispatch(toggleFavorite(pokemon));
   };
-
-  const controls = useAnimation();
-
-  const handleOnClick = () => {
-    controls.start({ translateY: [-10, 0, -10] });
-  };
-
-
 
   return (
     <div className="flex justify-center">

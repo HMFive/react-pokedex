@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
-import pokedex from '../assets/icons8-pokedex-48.png';
-import pokemon from '../assets/icons8-pokemon-48.png';
+import pokedex from '../../assets/icons8-pokedex-48.png';
+import pokemon from '../../assets/icons8-pokemon-48.png';
 
 function Navbar() {
   const [isDarkMode, setIsDarkMode] = useState(false);

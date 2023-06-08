@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { catchPokemon } from '../redux/store'
-import pokeBall from '../assets/icons8-pokeball-r-100.png';
-import emptyPokeBall from '../assets/icons8-pokeball-100.png';
+import { catchPokemon } from '../../redux/store'
+import pokeBall from '../../assets/icons8-pokeball-r-100.png';
+import emptyPokeBall from '../../assets/icons8-pokeball-100.png';
 import { motion } from 'framer-motion';
 
 function CatchButton({ pokemon, disabled }) {

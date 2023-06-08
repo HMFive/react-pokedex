@@ -16,7 +16,7 @@ const typeColor = {
   ghost: 'bg-indigo-500',
   dark: 'bg-neutral-700',
   steel: 'bg-slate-500',
-  faire: 'bg-fuchsia-500'
+  fairy: 'bg-fuchsia-500'
 };
 
 export default typeColor;

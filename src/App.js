@@ -1,9 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
-import Main from "./pages/Main";
+import Main from "./pages/PokemonListPage";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Details from "./pages/Details";
-import Pokedex from "./components/pokemon/Pokedex";
+import Details from "./pages/PokemonDetailsPage";
+import Pokedex from "./components/pokedex/Pokedex";
 
 function App() {
   return (

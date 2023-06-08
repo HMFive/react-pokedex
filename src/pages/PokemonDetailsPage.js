@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import typeColor from '../typeColor';
 import { useDispatch, useSelector } from 'react-redux';
 import { catchPokemon } from '../redux/store';
-import { motion } from 'framer-motion';
-import pokeBall from '../assets/icons8-pokeball-r-100.png';
-import emptyPokeBall from '../assets/icons8-pokeball-100.png';
-import Navigation from '../components/Navigation';
-import CatchButton from "../components/CatchButton";
-import PokemonInfo from "../components/pokemon/PokeInfo";
+import Navigation from '../layout/Navigation';
+import CatchButton from "../components/common/CatchButton";
+import PokemonInfo from "../components/pokemon-detail/PokeInfo";
 
 const PokemonDetailsPage = () => {
   const { id } = useParams();

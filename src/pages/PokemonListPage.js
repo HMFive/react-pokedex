@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import PokeList from "../components/pokemon/PokeList";
-import { Link } from 'react-router-dom';
-import Navigation from "../components/Navigation";
+import PokeCard from "../components/pokemon-list/PokeCard";
+import Navigation from "../layout/Navigation";
 
-const PokemonList = () => {
+const PokemonListPage = () => {
   const [pokemonList, setPokemonList] = useState([]);
   const [offset, setOffset] = useState(0);
   const limit = 21; // Number of Pokémon to fetch per request
@@ -54,7 +53,7 @@ const PokemonList = () => {
   return (
     <Navigation>
       <div>
-        <PokeList pokemon={pokemonList} />
+        <PokeCard pokemon={pokemonList} />
         <div className="flex justify-center mt-4">
           <button className="inline-flex items-center mx-4 px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" onClick={handlePrevClick}>
             Previous
@@ -68,4 +67,4 @@ const PokemonList = () => {
   );
 };
 
-export default PokemonList;
+export default PokemonListPage;

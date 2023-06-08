@@ -1,12 +1,12 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import axios from 'axios';
-import PokemonList from '../components/pokemon/PokemonList';
+import PokemonList from '../components/pokemon-list/PokemonListPage';
 
 jest.mock('axios');
 
 describe('PokemonList', () => {
-  test('renders the PokemonList component', () => {
+  test('renders the PokemonListPage component', () => {
     const mockedPokemonList = [
       { name: 'Pikachu', url: 'https://pokeapi.co/api/v2/pokemon/25' },
       { name: 'Charizard', url: 'https://pokeapi.co/api/v2/pokemon/6' },
