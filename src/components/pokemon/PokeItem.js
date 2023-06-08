@@ -6,6 +6,7 @@ import typeColor from '../../typeColor';
 import emptyPokeBall from '../../assets/icons8-pokeball-100.png';
 import pokeBall from '../../assets/icons8-pokeball-r-100.png';
 import { motion, useAnimation } from 'framer-motion';
+import CatchButton from "../CatchButton";
 
 
 function PokeItem(props) {
@@ -56,23 +57,12 @@ function PokeItem(props) {
               </span>
             ))}
           </div>
-          {showCatchButton && (
-            <motion.button
-              whileTap={{
-                y: [0, -15, 0],
-                rotate: [0, -30, 30, 0],
-                transition: { duration: 0.5 },
-              }}
-              onClick={handleCatch} disabled={isCaught}>
-              {isCaught ? <img src={pokeBall} alt="Caught" />
-
-
-                : <img src={emptyPokeBall} alt="Catch" />}
-            </motion.button>
-          )}
-          {showReleaseButton && <button onClick={handleRelease}>Release</button>}
+          {showCatchButton && <CatchButton pokemon={pokemon} disabled={false} />}
+          {showReleaseButton && <button className="my-4 text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" onClick={handleRelease}>Release</button>}
           {showAddToFavoritesButton && (
-            <button onClick={handleAddToFavorites}>
+            <button
+              className="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900"
+              onClick={handleAddToFavorites}>
               {pokemon.favorite ? 'Remove Favorite' : 'Add Favorite'}
             </button>
           )}
